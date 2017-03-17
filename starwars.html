@@ -1,0 +1,264 @@
+<html>
+<head>
+	<meta charset="utf-8">
+    <style type="text/css">
+        div {
+            border: solid yellow 3px;
+            display: inline-block;
+			padding: 5px;
+            margin: 10px;
+            font-size: 1.3em;
+			background: black;
+			text-align: center;
+			color: yellow;
+        }
+		
+		#root {
+			display:block;
+			width: 90%;
+			margin : auto;
+		}
+		body{
+			font-family: 'Exo', sans-serif;
+			background-color: #000;
+			background-image: url("https://i.ytimg.com/vi/voWpbz1De_M/maxresdefault.jpg");
+			color: #fff;
+		}
+
+
+
+
+    </style>
+	
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/javascript" src="react/react.js"></script>
+    <script type="text/javascript" src="react/JSXTransformer.js"></script>
+	<script src="../../build/react-with-addons.js"></script>
+    <script src="../../build/react-dom.js"></script>
+   <script type="text/javascript">
+	/*import imgYoda from './img/yoda.jpg'
+   import imgVader from './img/vader.jpg'*/
+   //import imgLeia from "./img/leia.jpg";
+   /*import imgObi from './img/obiwan.jpg'
+   import imgDooku from './img/dooku.jpg'
+   import imgPalp from './img/palpatine.jpe'
+   import imgQui from './img/quigon.jpe'*/
+
+		
+		var quotes = [{
+		  'author': '- Yoda',
+		  'quote': 'When 900 years old, you reach… Look as good, you will not.'
+		}, {
+		  'author': '- Senator palpatine',
+		  'quote': 'The Dark Side of the Force is the pathway to many abilities some consider to be.. Unnatural.'
+		}, {
+		  'author': '- Count Dooku',
+		  'quote': 'I sense great fear in you, Skywalker. You have hate… you have anger… but you don’t use them.'
+		}, {
+		  'author': '- Darth Vader',
+		  'quote': 'Luke, you can destroy the Emperor. He has foreseen this. It is your destiny. Join me, and together we can rule the galaxy as father and son.'
+		}, {
+		  'author': '- Princess leila',
+		  'quote': 'Aren\'t you a little short for a storm trooper?'
+		}, {
+		  'author': '- Yoda',
+		  'quote': 'Mmm. Lost a planet, Master Obi-Wan has. How embarrassing.'
+		}, {
+		  'author': '- Qui-Gon Jinn',
+		  'quote': 'Your focus determines your reality'
+		}, {
+		  'author': '- Yoda',
+		  'quote': 'Do. Or do not. There is no try.'
+		}, {
+		  'author': '- Obi-Wan-Kenobi',
+		  'quote': 'In my experience there is no such thing as luck.'
+		}, {
+		  'author': '- Yoda',
+		  'quote': 'If once you start down the dark side, forever will it dominate your destiney, consume you it will, as it did Obi-Wan\'s apprentice'
+		}, {
+		  'author': '- Darth Vader',
+		  'quote': 'The Force is strong with this one.'
+		}];
+		
+		var authors = ['- Yoda','- Darth Vader','- Obi-Wan-Kenobi','- Qui-Gon Jinn','- Princess leila','- Count Dooku','- Senator palpatine'];
+		
+		
+		
+		var QuotesOfYoda = ['When 900 years old, you reach… Look as good, you will not.','Do. Or do not. There is no try.','Mmm. Lost a planet, Master Obi-Wan has. How embarrassing.','If once you start down the dark side, forever will it dominate your destiney, consume you it will, as it did Obi-Wan\'s apprentice'];
+		var QuotesOfVader = ['The Force is strong with this one.','Luke, you can destroy the Emperor. He has foreseen this. It is your destiny. Join me, and together we can rule the galaxy as father and son.'];
+		var QuotesOfObi = ['In my experience there is no such thing as luck.',];
+		var QuotesOfQuiGon = ['Your focus determines your reality'];
+		var QuotesOfDooku = ['I sense great fear in you, Skywalker. You have hate… you have anger… but you don’t use them.'];
+		var QuotesOfLeila = ['Aren\'t you a little short for a storm trooper?'];
+		var QuotesOfPalp = ['The Dark Side of the Force is the pathway to many abilities some consider to be.. Unnatural.'];
+		
+
+		
+		function randQuoteOf(author) {
+			var quotesOf;
+			var i;
+			var l =1;
+			if ('- Yoda'==author) {
+				l=4;
+				i = Math.floor(Math.random() * l)
+				quotesOf=QuotesOfYoda[i];
+				
+			}
+			else if ('- Darth Vader'==author) {
+				l=2;
+				i = Math.floor(Math.random() * l)
+				quotesOf=QuotesOfVader[i];
+			}
+			else if ('- Obi-Wan-Kenobi'==author) {
+				i = Math.floor(Math.random() * l)
+				quotesOf=QuotesOfObi[i];
+			}
+			else if ('- Qui-Gon Jinn'==author) {
+				i = Math.floor(Math.random() * l)
+				quotesOf=QuotesOfQuiGon[i];
+			}
+			else if ('- Princess leila'==author) {
+				i = Math.floor(Math.random() * l)
+				quotesOf=QuotesOfLeila[i];
+			}
+			else if ('- Count Dooku'==author) {
+				i = Math.floor(Math.random() * l)
+				quotesOf=QuotesOfDooku[i];
+			}
+			else if ('- Senator palpatine'==author) {
+				i = Math.floor(Math.random() * l)
+				quotesOf=QuotesOfPalp[i];
+			}
+			return  quotesOf
+		}
+		
+		var imgOf = {};
+		
+		imgOf['- Yoda'] = './img/yoda.jpg';
+		imgOf['- Darth Vader'] = './img/vader.jpg';
+		imgOf['- Obi-Wan-Kenobi'] = './img/obiwan.jpg';
+		imgOf['- Qui-Gon Jinn'] = './img/quigon.jpe';
+		imgOf['- Princess leila'] = './img/leia.jpg';
+		imgOf['- Count Dooku'] = './img/dooku.jpe';
+		imgOf['- Senator palpatine'] = './img/palpatine.jpe';
+		
+		
+
+       
+    </script>
+    
+    <script type="text/jsx">
+
+    var Tree =  React.createClass({
+        render : function () {
+            return (<div >
+				<Authors onAuthorSelected={this.selectAuthor}/>
+                <Score author={this.state.author} />
+			
+            </div>);
+        },
+
+        getInitialState : function() {
+            return{
+                author : '',
+            }
+        },
+
+        selectAuthor : function (newAuthor) {
+            return this.setState({author : newAuthor});
+        }
+		
+    });
+	
+	var Authors = React.createClass({
+
+        render : function () {
+            var handler = this.props.onAuthorSelected;
+			var randomOutput = quotes[Math.floor(Math.random() * quotes.length)];
+
+            return (<div >
+                {authors.map(function(item) {
+                    return <Author itemValue={item} whenClick={handler} />;
+                })}
+                <RandomPick itemValue={randomOutput} whenClick={handler} />
+            </div>);
+        },
+		
+		getInitialState : function() {
+            return{
+				count : ''
+            }
+        },
+
+    });
+	
+	var RandomPick = React.createClass({
+
+        render : function () {
+            var classname = this.state.selected ? 'selected' : '';
+
+            return ( <div className={classname} onClick={this.handleClick}>Random</div>);
+        },
+
+        getInitialState : function () {
+            return {selected : false };
+        },
+
+        handleClick : function () {
+            this.props.whenClick(this.props.itemValue);
+            this.setState({selected : true
+			});
+        }
+    });
+	
+	var Author = React.createClass({
+
+        render : function () {
+            var classname = this.state.selected ? 'selected' : '';
+			
+            return ( <div className={classname} onClick={this.handleClick} > <img className="image" src={imgOf[this.props.itemValue]} />	</div>);
+        },
+
+        getInitialState : function () {
+            return {selected : false 
+			};
+        },
+
+        handleClick : function () {
+            this.props.whenClick(this.props.itemValue);
+            this.setState({selected : true,
+			});
+        }
+    });
+
+    var Score = React.createClass({
+	
+        render : function () {
+		if (this.props.author.author) {
+			var quote = this.props.author.quote
+			var from = this.props.author.author
+		}
+		else {                           
+		var from = this.props.author
+		var quote = randQuoteOf(this.props.author)
+		}
+            return (<div>
+                {quote} <br/> {from} 
+            </div>);
+        },
+
+    });
+
+
+    React.render(<Tree />, document.getElementById('root'));
+
+    </script>
+
+	
+</body>
+</html>
